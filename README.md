@@ -1,5 +1,14 @@
 # PawPal+ (Module 2 Project)
 
+## ✨ Features
+
+- **Task sorting** — schedules are always displayed in chronological order
+- **Conflict warnings** — alerts you when two tasks are scheduled at the same time
+- **Daily recurrence** — completing a daily task automatically creates tomorrow's occurrence
+- **Weekly recurrence** — same for weekly tasks, scheduled 7 days ahead
+- **Filtering** — view tasks by pet name or completion status
+- **Streamlit UI** — interactive web app to manage pets, tasks, and schedules
+
 You are building **PawPal+**, a Streamlit app that helps a pet owner plan care tasks for their pet.
 
 ## Scenario
@@ -100,14 +109,30 @@ Confidence level: ⭐⭐⭐⭐ (4/5)
 | Filtering | `Scheduler.filter_tasks(pet_name, completed)` | Filters by pet name and/or completion status |
 | Conflict detection | `Scheduler.detect_conflicts()` | Warns when two tasks share the same scheduled time |
 | Recurring tasks | `Scheduler.handle_recurrence(task, pet)` | Creates next occurrence for daily (+1 day) and weekly (+7 days) tasks |
+
+
 ## 📸 Demo Walkthrough
 
-Describe your app in numbered steps so a reader can follow along without watching a video:
+1. Enter your name and pet name, select species, click **Set Owner & Pet**
+2. Add tasks using the task form — set a title, duration, priority, frequency, and scheduled time
+3. Add two tasks at the same time to see the conflict warning appear
+4. Click **Generate Schedule** to see today's tasks sorted by time
+5. Conflicts appear as yellow warnings above the schedule
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+**Sample CLI output from `python main.py`:**
+```
+🐾 Daily Schedule for Jordan's pets
+========================================
+  🔲 08:00 — Morning walk (20 min) [high]
+  🔲 08:00 — Medication (5 min) [high]
+  🔲 09:00 — Feeding (10 min) [high]
+  🔲 10:00 — Grooming (15 min) [medium]
+  🔲 14:00 — Playtime (20 min) [low]
+  🔲 17:00 — Evening walk (30 min) [high]
+
+⚠️  Conflict Check
+========================================
+  ⚠️ Conflict at 08:00: 'Morning walk' and 'Medication'
+```
 
 **Screenshot or video** *(optional)*: <!-- Insert a screenshot or link to a demo video here -->
