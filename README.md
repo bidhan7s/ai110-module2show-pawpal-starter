@@ -88,15 +88,12 @@ tests/test_pawpal.py::test_recurrence_creates_new_task PASSED                 [1
 
 ## 📐 Smarter Scheduling
 
-> Fill in once you've implemented scheduling logic.
-
 | Feature | Method(s) | Notes |
 |---------|-----------|-------|
-| Task sorting | | e.g., by priority, duration |
-| Filtering | | e.g., skip tasks if time runs out |
-| Conflict handling | | e.g., overlapping time slots |
-| Recurring tasks | | e.g., daily vs. weekly |
-
+| Task sorting | `Scheduler.sort_by_time()` | Sorts all tasks chronologically by HH:MM scheduled time |
+| Filtering | `Scheduler.filter_tasks(pet_name, completed)` | Filters by pet name and/or completion status |
+| Conflict detection | `Scheduler.detect_conflicts()` | Warns when two tasks share the same scheduled time |
+| Recurring tasks | `Scheduler.handle_recurrence(task, pet)` | Creates next occurrence for daily (+1 day) and weekly (+7 days) tasks |
 ## 📸 Demo Walkthrough
 
 Describe your app in numbered steps so a reader can follow along without watching a video:
