@@ -13,8 +13,8 @@ if "scheduler" not in st.session_state:
 
 # --- Owner + Pet Setup ---
 st.subheader("👤 Owner & Pet Info")
-owner_name = st.text_input("Owner name", value="Jordan")
-pet_name   = st.text_input("Pet name", value="Mochi")
+owner_name = st.text_input("Owner name", placeholder="Enter owner name")
+pet_name   = st.text_input("Pet name", placeholder="Enter pet name")
 species    = st.selectbox("Species", ["dog", "cat", "other"])
 
 if st.button("Set Owner & Pet"):
