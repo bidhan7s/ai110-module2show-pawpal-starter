@@ -18,10 +18,14 @@ I designed four classes:
 - Pet: holds name and species, owns a list of Tasks. It can add or remove tasks.
 - Owner: holds a name and a list of Pets. It can add pets and retrieve all tasks across pets.
 - Scheduler: takes an Owner and handles all scheduling logic — sorting by time, filtering, conflict detection, and recurring tasks.
+
 **b. Design changes**
 
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
+
+No major changes yet from the initial design. The skeletons match the UML directly.
+I will update this section if the design changes during implementation.
 
 ---
 

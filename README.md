@@ -44,30 +44,46 @@ pip install -r requirements.txt
 
 ## 🖥️ Sample Output
 
-Paste a sample of your app's CLI or Streamlit output here so a reader can see what a generated plan looks like:
-
 ```
-# e.g.:
-# Daily plan for Biscuit (Golden Retriever):
-#   08:00 — Morning walk (30 min) [priority: high]
-#   09:00 — Feeding (10 min) [priority: high]
-#   ...
+🐾 Daily Schedule for Jordan's pets
+========================================
+  🔲 08:00 — Morning walk (20 min) [high]
+  🔲 08:00 — Medication (5 min) [high]
+  🔲 09:00 — Feeding (10 min) [high]
+  🔲 10:00 — Grooming (15 min) [medium]
+  🔲 14:00 — Playtime (20 min) [low]
+  🔲 17:00 — Evening walk (30 min) [high]
+
+⚠️  Conflict Check
+========================================
+  ⚠️ Conflict at 08:00: 'Morning walk' and 'Medication'
+
+📋 Incomplete Tasks
+========================================
+  🔲 Evening walk
+  🔲 Morning walk
+  🔲 Medication
+  🔲 Feeding
+  🔲 Grooming
+  🔲 Playtime
 ```
 
 ## 🧪 Testing PawPal+
 
 ```bash
-# Run the full test suite:
-pytest
-
-# Run with coverage:
-pytest --cov
+python -m pytest -v
 ```
 
-Sample test output:
+Tests cover: task completion, task count, chronological sorting, conflict detection, and daily recurrence.
 
 ```
-# Paste your pytest output here
+======================================== test session starts ========================================
+tests/test_pawpal.py::test_mark_complete_changes_status PASSED                [ 20%]
+tests/test_pawpal.py::test_add_task_increases_count PASSED                    [ 40%]
+tests/test_pawpal.py::test_sort_by_time_is_chronological PASSED               [ 60%]
+tests/test_pawpal.py::test_conflict_detection PASSED                          [ 80%]
+tests/test_pawpal.py::test_recurrence_creates_new_task PASSED                 [100%]
+========================================= 5 passed in 0.04s =========================================
 ```
 
 ## 📐 Smarter Scheduling
