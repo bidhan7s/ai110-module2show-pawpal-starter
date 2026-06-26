@@ -2,11 +2,22 @@
 
 ## 1. System Design
 
+### Core User Actions
+1. Add a pet by entering its name and species
+2. Schedule a task for a pet with a time, duration, and priority
+3. View today's full schedule sorted by time and check off completed tasks
+
 **a. Initial design**
 
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
 
+
+I designed four classes:
+- Task: holds title, duration, priority, frequency, scheduled_time, and completed status. It can mark itself complete.
+- Pet: holds name and species, owns a list of Tasks. It can add or remove tasks.
+- Owner: holds a name and a list of Pets. It can add pets and retrieve all tasks across pets.
+- Scheduler: takes an Owner and handles all scheduling logic — sorting by time, filtering, conflict detection, and recurring tasks.
 **b. Design changes**
 
 - Did your design change during implementation?
