@@ -24,8 +24,12 @@ I designed four classes:
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
 
-No major changes yet from the initial design. The skeletons match the UML directly.
-I will update this section if the design changes during implementation.
+The core class structure did not change during implementation — the final code
+matches the initial UML directly, which is why `uml.mmd` and `uml_final.mmd` are
+identical. The one refinement was inside `Scheduler`: I split what started as a
+single `get_schedule()` idea into separate `sort_by_time()`, `filter_tasks()`,
+and `generate_schedule()` methods. Keeping each responsibility in its own method
+made the logic easier to test in isolation rather than verifying one large method.
 
 ---
 
@@ -60,6 +64,19 @@ helpful prompts were specific and attached my actual files.
 I verified every AI suggestion by running the code and checking the output 
 matched what I expected. For example I confirmed conflict detection worked by 
 adding two tasks at 08:00 and checking the warning appeared in the UI.
+
+**Suggestions I accepted:** I kept Claude's suggestion to use `@dataclass` for
+`Task` and `Pet`. It removed a lot of boilerplate `__init__` code and made the
+attributes match the UML one-to-one, which kept the diagram and code in sync.
+I also accepted the idea of having `Scheduler` take an `Owner` and reach tasks
+through it, rather than holding its own task list — this avoided duplicated state.
+
+**Suggestions I rejected/changed:** Claude initially proposed storing
+`scheduled_time` as a `datetime.time` object. I rejected that and kept a simple
+`"HH:MM"` string, because string comparison already sorts chronologically and it
+made the Streamlit text input and tests far simpler. I also declined an early
+suggestion to add duration-overlap conflict detection — I scoped it down to
+exact-time conflicts for the MVP and noted the tradeoff in section 2b above.
 
 ---
 

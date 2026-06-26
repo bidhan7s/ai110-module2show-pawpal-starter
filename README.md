@@ -31,6 +31,19 @@ Your final app should:
 - Display the plan clearly (and ideally explain the reasoning)
 - Include tests for the most important scheduling behaviors
 
+## 🧱 Classes
+
+The system is built from four classes in `pawpal_system.py`:
+
+| Class | Responsibility |
+|-------|----------------|
+| `Task` | A single care task — holds title, duration, priority, frequency, scheduled time, due date, and completion status. Can `mark_complete()`. |
+| `Pet` | A pet with a name, species, and its own list of tasks. Can `add_task()` and `remove_task()`. |
+| `Owner` | A pet owner with a name and a list of pets. Can `add_pet()` and `get_all_tasks()` across every pet. |
+| `Scheduler` | The brain — takes an `Owner` and organizes tasks across all of their pets: sorting, filtering, conflict detection, recurrence, and daily schedule generation. |
+
+**Relationships:** an `Owner` has many `Pet`s, a `Pet` has many `Task`s, and a `Scheduler` manages one `Owner`. See `diagrams/uml.mmd` for the full class diagram.
+
 ## Getting started
 
 ### Setup
