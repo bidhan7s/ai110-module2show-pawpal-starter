@@ -74,17 +74,23 @@ pip install -r requirements.txt
 python -m pytest -v
 ```
 
-Tests cover: task completion, task count, chronological sorting, conflict detection, and daily recurrence.
+Tests cover:
+- **Task completion** — `mark_complete()` correctly flips the completed flag
+- **Task count** — adding a task increases the pet's task list
+- **Sorting** — tasks come back in chronological order regardless of insertion order
+- **Conflict detection** — two tasks at the same time triggers a warning
+- **Recurrence** — completing a daily task creates a new task for the next day
 
 ```
-======================================== test session starts ========================================
-tests/test_pawpal.py::test_mark_complete_changes_status PASSED                [ 20%]
-tests/test_pawpal.py::test_add_task_increases_count PASSED                    [ 40%]
-tests/test_pawpal.py::test_sort_by_time_is_chronological PASSED               [ 60%]
-tests/test_pawpal.py::test_conflict_detection PASSED                          [ 80%]
-tests/test_pawpal.py::test_recurrence_creates_new_task PASSED                 [100%]
-========================================= 5 passed in 0.04s =========================================
+tests/test_pawpal.py::test_mark_complete_changes_status PASSED   [ 20%]
+tests/test_pawpal.py::test_add_task_increases_count PASSED       [ 40%]
+tests/test_pawpal.py::test_sort_by_time_is_chronological PASSED  [ 60%]
+tests/test_pawpal.py::test_conflict_detection PASSED             [ 80%]
+tests/test_pawpal.py::test_recurrence_creates_new_task PASSED    [100%]
+========================================= 5 passed in 0.04s =========
 ```
+
+Confidence level: ⭐⭐⭐⭐ (4/5)
 
 ## 📐 Smarter Scheduling
 
