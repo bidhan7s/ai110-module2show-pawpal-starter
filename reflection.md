@@ -33,13 +33,17 @@ I will update this section if the design changes during implementation.
 
 **a. Constraints and priorities**
 
-- What constraints does your scheduler consider (for example: time, priority, preferences)?
-- How did you decide which constraints mattered most?
+The scheduler considers three constraints: scheduled time (HH:MM), priority 
+(high/medium/low), and due date (today vs future). Time-order was chosen as 
+the primary sort key because a pet owner cares most about when something needs 
+to happen.
 
 **b. Tradeoffs**
 
-- Describe one tradeoff your scheduler makes.
-- Why is that tradeoff reasonable for this scenario?
+The conflict detector only flags tasks at the exact same time. It does not 
+check overlapping durations — a 30-minute walk at 08:00 and a feeding at 08:20 
+would not trigger a warning. This is reasonable for an MVP since exact-time 
+conflicts are the clearest mistakes to catch.
 
 ---
 
@@ -47,13 +51,15 @@ I will update this section if the design changes during implementation.
 
 **a. How you used AI**
 
-- How did you use AI tools during this project (for example: design brainstorming, debugging, refactoring)?
-- What kinds of prompts or questions were most helpful?
+I used Claude as my AI coding assistant to brainstorm the UML diagram, generate 
+class skeletons, implement scheduling logic, and draft the test suite. The most 
+helpful prompts were specific and attached my actual files.
 
 **b. Judgment and verification**
 
-- Describe one moment where you did not accept an AI suggestion as-is.
-- How did you evaluate or verify what the AI suggested?
+I verified every AI suggestion by running the code and checking the output 
+matched what I expected. For example I confirmed conflict detection worked by 
+adding two tasks at 08:00 and checking the warning appeared in the UI.
 
 ---
 
@@ -61,13 +67,13 @@ I will update this section if the design changes during implementation.
 
 **a. What you tested**
 
-- What behaviors did you test?
-- Why were these tests important?
+I tested task completion, task count, chronological sorting, conflict detection, 
+and daily recurrence. These are the core behaviors the scheduler depends on.
 
 **b. Confidence**
 
-- How confident are you that your scheduler works correctly?
-- What edge cases would you test next if you had more time?
+4/5 — the happy paths all work. Edge cases like a pet with no tasks or invalid 
+time strings are not yet tested.
 
 ---
 
@@ -75,12 +81,16 @@ I will update this section if the design changes during implementation.
 
 **a. What went well**
 
-- What part of this project are you most satisfied with?
+The CLI-first approach worked really well. Testing the backend with main.py 
+before touching the UI meant I caught bugs early.
 
 **b. What you would improve**
 
-- If you had another iteration, what would you improve or redesign?
+I would add duration-overlap detection to the conflict checker and persist data 
+between sessions using a database instead of session state.
 
 **c. Key takeaway**
 
-- What is one important thing you learned about designing systems or working with AI on this project?
+AI is most useful when you give it a specific file or context to work with. 
+Vague prompts return generic code — specific prompts return code that actually 
+fits your design.
