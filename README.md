@@ -41,6 +41,9 @@ source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+python main.py        # run CLI demo
+streamlit run app.py  # run the web app
+
 ### Suggested workflow
 
 1. Read the scenario carefully and identify requirements and edge cases.
